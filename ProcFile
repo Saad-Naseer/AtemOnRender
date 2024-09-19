@@ -1,1 +1,4 @@
-web: gunicorn -k gevent -b 0.0.0.0:8000 app:app
+'''web: gunicorn -w 4 -k eventlet app:app'''
+web: gunicorn -w 4 -b 0.0.0.0:8000 app:app
+
+'''web: gunicorn -k -b 192.168.0.201:5000 app:app'''

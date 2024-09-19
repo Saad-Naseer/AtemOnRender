@@ -15,7 +15,20 @@ const buttons = document.querySelectorAll('.action-btn');
 buttons.forEach(button => {
     button.addEventListener('click', () => {
         const buttonNumber = button.innerText;  // Get the button number (1, 2, 3, or 4)
-        socket.emit('button_click', { button: buttonNumber });  // Emit the button click signal with the number
+        
+        // Toggle the clicked button
+        if (button.classList.contains('active')) {
+            button.classList.remove('active');  // Unpress the button if already active
+        } else {
+            // Unpress all other buttons
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Press the clicked button
+            button.classList.add('active');
+            
+            // Emit the button click signal with the number
+            socket.emit('button_click', { button: buttonNumber });
+        }
     });
 });
 

@@ -58,3 +58,8 @@ body {
 .action-btn:hover {
     background-color: #1e88e5;
 }
+
+.action-btn.active {
+    background-color: #4CAF50;  /* Active button styling */
+    color: white;
+}
