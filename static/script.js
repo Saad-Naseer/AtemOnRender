@@ -1,4 +1,10 @@
-const socket = io();  // Initialize Socket.IO client
+//const socket = io();  // Initialize Socket.IO client
+const socket = io('https://atem-xzrj.onrender.com/', {
+    transports: ['polling'],
+    cors: {
+        origin: '*',
+    }
+});
 
 document.getElementById('setIpBtn').addEventListener('click', () => {
     const ip = document.getElementById('ipAddress').value;
